@@ -1,7 +1,6 @@
 class Solution {
 public:
-    bool row[9];
-bool col[9];
+    bool col[9];
 bool dgn[17];//y-x+9  
 bool dgn1[17];//x+y
 int gn;
@@ -10,10 +9,6 @@ vector<string>path;
 string st;
 void dfs(int y)
 {
-	if (y != 0 && row[y-1] == false)
-	{
-		return;
-	}
 	if (y == gn)
 	{
 		ret.emplace_back(path);
@@ -28,7 +23,6 @@ void dfs(int y)
 			col[x] = true;
 			dgn[y - x + 8] = true;
 			dgn1[y + x] = true;
-			row[y] = true;
 			int xt = x;
 			while (xt < gn-1)
 			{
@@ -47,7 +41,6 @@ void dfs(int y)
 			col[x] = false;
 			dgn[y - x + 8] = false;
 			dgn1[y + x] = false;
-			row[x] = false;
 		}
 		else
 		{
